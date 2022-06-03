@@ -9,7 +9,7 @@ public class LinkedList_DSA_Sheet {
     public static void main(String[] args) {
 
         {
-            insertAtBeginning(9);
+//            insertAtBeginning(9);
             insertAtBeginning(8);
             insertAtBeginning(7);
             insertAtBeginning(6);
@@ -59,10 +59,31 @@ public class LinkedList_DSA_Sheet {
         // 3. Print reverse of a Linked List without actually reversing
 
 
+        /*
         System.out.println("Print reverse of a Linked List without actually reversing: \n");
         reverseLLWithoutReversing(head);
+        */
 
 
+        // 4. Find the middle of a given linked list
+
+        findMiddle();
+
+    }
+
+    // 4. Find the middle of a given linked list
+    private static void findMiddle() {
+        Node current = head;
+
+        Node slow = head;
+        Node fast = head.nextNode;  // if list is even it'll return left side of middle element and if we want to return right side then do fast = head;
+
+        while(slow != null && fast != null && fast.nextNode != null){
+            slow = slow.nextNode;
+            fast = fast.nextNode.nextNode;
+        }
+
+        System.out.println("Middle Element of Linked List: " + slow.data);
     }
 
     // 3. Print reverse of a Linked List without actually reversing
