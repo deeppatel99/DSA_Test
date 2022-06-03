@@ -9,6 +9,7 @@ public class LinkedList_DSA_Sheet {
     public static void main(String[] args) {
 
         {
+            insertAtBeginning(9);
             insertAtBeginning(8);
             insertAtBeginning(7);
             insertAtBeginning(6);
@@ -27,6 +28,10 @@ public class LinkedList_DSA_Sheet {
 
         // 1. Reverse a Linked List in group of given size K
 
+//        Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3
+//        Output:   3->2->1->6->5->4->9->8->7->NULL.
+
+        /*
         System.out.println("Reverse a Linked List in group of given size K : \n");
 
         Node newHead = head;
@@ -34,7 +39,57 @@ public class LinkedList_DSA_Sheet {
         printLL(newHead);
 
         System.out.println();
+        */
 
+
+        // 2. Reverse alternate K nodes in a Singly Linked List
+
+//        Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3
+//        Output:   3->2->1->4->5->6->9->8->7->NULL.
+
+
+        System.out.println("Reverse alternate K nodes in a Singly Linked List : \n");
+
+        Node newHead = head;
+        newHead = reverseLLAlternateOfSizeK(newHead,3);
+        printLL(newHead);
+
+
+    }
+
+    private static Node reverseLLAlternateOfSizeK(Node newHead, int k) {
+        if(newHead == null){
+            System.out.println("Linked List is Empty!");
+        }
+
+        Node current = newHead;
+        Node prev = null;
+        Node next = null;
+        int count = 1;
+
+        while (current != null && count <= k){
+            next = current.nextNode;
+            current.nextNode = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+
+        if(newHead != null){
+            newHead.nextNode = current;
+        }
+
+        count = 1;
+        while (current != null && count < k) {
+            current = current.nextNode;
+            count++;
+        }
+
+        if (current != null){
+            current.nextNode = reverseLLOfSizeK(current.nextNode, k);
+        }
+
+        return prev;
     }
 
     private static Node reverseLLOfSizeK(Node head1, int k) {
