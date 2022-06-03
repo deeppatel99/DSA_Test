@@ -80,6 +80,31 @@ public class LinkedList_DSA_Sheet {
         */
 
 
+        // 6. Program for n’th node from the end of a Linked List
+
+        System.out.println("Program for n’th node from the end of a Linked List: \n");
+        nthNodeFromEndOfList(4);
+
+    }
+
+    // 6. Program for n’th node from the end of a Linked List
+    private static void nthNodeFromEndOfList(int k) {
+       Node current = head;
+       int count = 1;
+
+       while (current != null){
+           current = current.nextNode;
+           count++;
+       }
+
+       int nthNodeFromEnd = count - k;
+       current = head;
+       for(int i = 1; i < nthNodeFromEnd; i++){
+           current = current.nextNode;
+       }
+
+        System.out.println("nth Node from End of List : " + current.data);
+
     }
 
     private static void initiateLoop(Node existingNode, Node lastNode) {
