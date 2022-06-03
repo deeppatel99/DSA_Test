@@ -82,9 +82,29 @@ public class LinkedList_DSA_Sheet {
 
         // 6. Program for n’th node from the end of a Linked List
 
-        System.out.println("Program for n’th node from the end of a Linked List: \n");
-        nthNodeFromEndOfList(4);
+//        System.out.println("Program for n’th node from the end of a Linked List: \n");
+//        nthNodeFromEndOfList(4);
 
+
+        // 7. Pairwise swap elements of a given linked list
+
+        System.out.println("Pairwise swap elements of a given linked list: \n");
+        pairwiseSwapLL();
+        printLL(head);
+        System.out.println();
+
+    }
+
+    // 7.  Pairwise swap elements of a given linked list
+    private static void pairwiseSwapLL() {
+        Node current = head;
+
+        while(current != null && current.nextNode != null ){
+            int k = current.data;
+            current.data = current.nextNode.data;
+            current.nextNode.data = k;
+            current = current.nextNode.nextNode;
+        }
     }
 
     // 6. Program for n’th node from the end of a Linked List
