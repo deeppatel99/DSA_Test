@@ -47,16 +47,39 @@ public class LinkedList_DSA_Sheet {
 //        Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3
 //        Output:   3->2->1->4->5->6->9->8->7->NULL.
 
-
+        /*
         System.out.println("Reverse alternate K nodes in a Singly Linked List : \n");
 
         Node newHead = head;
         newHead = reverseLLAlternateOfSizeK(newHead,3);
         printLL(newHead);
+        */
+
+
+        // 3. Print reverse of a Linked List without actually reversing
+
+
+        System.out.println("Print reverse of a Linked List without actually reversing: \n");
+        reverseLLWithoutReversing(head);
 
 
     }
 
+    // 3. Print reverse of a Linked List without actually reversing
+    private static void reverseLLWithoutReversing(Node head1) {
+        Node current = head1;
+
+        if(current == null){
+            return;
+        }
+
+        reverseLLWithoutReversing(current.nextNode);
+
+        System.out.print(current.data + "  ");
+    }
+
+
+    // 2. Reverse alternate K nodes in a Singly Linked List
     private static Node reverseLLAlternateOfSizeK(Node newHead, int k) {
         if(newHead == null){
             System.out.println("Linked List is Empty!");
@@ -92,6 +115,8 @@ public class LinkedList_DSA_Sheet {
         return prev;
     }
 
+
+    // 1. Reverse a Linked List in group of given size K
     private static Node reverseLLOfSizeK(Node head1, int k) {
 
         if(head1 == null){
