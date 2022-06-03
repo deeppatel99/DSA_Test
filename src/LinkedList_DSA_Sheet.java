@@ -67,8 +67,81 @@ public class LinkedList_DSA_Sheet {
 
         // 4. Find the middle of a given linked list
 
-        findMiddle();
+//        findMiddle();
 
+
+        // 5.  Detect and Remove Loop in a Linked List
+
+//        System.out.println("Node: " + findExistingNode(5).data);
+        /*
+        System.out.println();
+        initiateLoop(findExistingNode(5), findExistingNode(8));
+        detectLoop();
+        */
+
+
+    }
+
+    private static void initiateLoop(Node existingNode, Node lastNode) {
+        lastNode.nextNode = existingNode;
+    }
+
+    // 5.  Detect and Remove Loop in a Linked List
+    private static Node detectLoop() {
+        Node slow = head;
+        Node fast = head.nextNode;
+
+        while(slow != null && fast != null && fast.nextNode != null && slow != fast){
+            slow = slow.nextNode;
+            fast = fast.nextNode.nextNode;
+        }
+
+        if(slow == fast){
+            System.out.println("Loop Detected!");
+            detectLoopAndDelete(slow);
+        }else {
+            System.out.println("Loop not Detected!");
+        }
+
+        return null;
+    }
+
+    private static void detectLoopAndDelete(Node loop) {
+        Node ptr1 = loop;
+        Node ptr2 = loop;
+
+        // Count the number of nodes in loop
+        int count = 1,i;
+        while(ptr1.nextNode != ptr2){
+            ptr1 = ptr1.nextNode;
+            count++;
+        }
+
+        // Fix one pointer to head
+        ptr1 = head;
+
+        // And the other pointer to k nodes after head
+        ptr2 = head;
+        for(i = 0; i < count; i++){
+            ptr2 = ptr2.nextNode;
+        }
+
+        /*  Move both pointers at the same pace,
+         they will meet at loop starting node */
+        while (ptr2 != ptr1){
+            ptr1 = ptr1.nextNode;
+            ptr2 = ptr2.nextNode;
+        }
+
+
+        // Get pointer to the last node
+        while (ptr2.nextNode != ptr1){
+            ptr2 = ptr2.nextNode;
+        }
+
+        ptr2.nextNode = null;
+
+        System.out.println("Loop Removed !");
     }
 
     // 4. Find the middle of a given linked list
@@ -182,6 +255,15 @@ public class LinkedList_DSA_Sheet {
 
     }
 
+    private static Node findExistingNode(int data1){
+        Node current = head;
+
+        while(current != null && current.data != data1){
+            current = current.nextNode;
+        }
+
+        return current;
+    }
     private static void printLL(Node head1){
         Node current = head1;
 
