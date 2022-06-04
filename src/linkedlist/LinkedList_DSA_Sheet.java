@@ -1,3 +1,5 @@
+package linkedlist;
+
 public class LinkedList_DSA_Sheet {
     public static class Node{
         public int data;
@@ -88,11 +90,46 @@ public class LinkedList_DSA_Sheet {
 
         // 7. Pairwise swap elements of a given linked list
 
+        /*
         System.out.println("Pairwise swap elements of a given linked list: \n");
         pairwiseSwapLL();
         printLL(head);
         System.out.println();
+        */
 
+
+        // 8. Rotate a Linked List
+
+//        For example, if the given linked list is 10->20->30->40->50->60 and k is 4, the list should be modified to 50->60->10->20->30->40.
+
+        System.out.println("Rotate a Linked List: \n");
+        rotateLL(2);
+
+    }
+
+    // 8. Rotate a Linked List
+    private static void rotateLL(int k) {
+        Node current = head;
+        int count = 1;
+
+        while(current != null && count != k){
+            current = current.nextNode;
+            count++;
+        }
+
+        Node nextOfCurrent = current.nextNode;
+        Node newHead = nextOfCurrent;
+        current.nextNode = null;
+
+        while (nextOfCurrent.nextNode != null){
+            nextOfCurrent = nextOfCurrent.nextNode;
+        }
+
+        nextOfCurrent.nextNode = head;
+        head = newHead;
+
+        printLL(head);
+        System.out.println();
     }
 
     // 7.  Pairwise swap elements of a given linked list
