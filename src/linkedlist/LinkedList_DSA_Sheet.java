@@ -1,8 +1,11 @@
 package linkedlist;
 
+import java.util.Stack;
+
 public class LinkedList_DSA_Sheet {
     public static class Node{
         public int data;
+        public String dataString;
         public Node nextNode;
     }
 
@@ -10,7 +13,7 @@ public class LinkedList_DSA_Sheet {
 
     public static void main(String[] args) {
 
-        {
+       /* {
 //            insertAtBeginning(9);
             insertAtBeginning(8);
             insertAtBeginning(7);
@@ -25,6 +28,7 @@ public class LinkedList_DSA_Sheet {
             printLL(head);
             System.out.println("\n");
         }
+        */
 
 
 
@@ -102,9 +106,57 @@ public class LinkedList_DSA_Sheet {
 
 //        For example, if the given linked list is 10->20->30->40->50->60 and k is 4, the list should be modified to 50->60->10->20->30->40.
 
+        /*
         System.out.println("Rotate a Linked List: \n");
         rotateLL(2);
+        */
 
+
+        // 9. Function to check if a singly linked list is palindrome.   Ex: R -> A -> D -> A -> R
+
+        {
+            insertAtBeginningString("R");
+            insertAtBeginningString("A");
+            insertAtBeginningString("D");
+            insertAtBeginningString("A");
+            insertAtBeginningString("R");
+
+            printLLString(head);
+            System.out.println();
+        }
+
+        checkIfLLIsPalindrome();
+
+
+    }
+
+    // 9. Function to check if a singly linked list is palindrome.
+    private static void checkIfLLIsPalindrome() {
+        Stack<String> stack = new Stack<String>();
+        Node current = head;
+
+        while (current != null){
+            stack.push(current.dataString);
+            current = current.nextNode;
+        }
+
+        current = head;
+        boolean flag = false;
+        while (current != null){
+            if(current.dataString == stack.pop()){
+                flag = true;
+            }else {
+                flag = false;
+                break;
+            }
+            current = current.nextNode;
+        }
+
+        if(flag){
+            System.out.println("Linked list is a Palindrome !");
+        }else {
+            System.out.println("Not a Palindrome !");
+        }
     }
 
     // 8. Rotate a Linked List
@@ -337,6 +389,21 @@ public class LinkedList_DSA_Sheet {
 
     }
 
+    private static void insertAtBeginningString(String data1) {
+        Node newNode = new Node();
+
+        if(head == null){
+            newNode.dataString = data1;
+            head = newNode;
+            return;
+        }
+
+        newNode.dataString = data1;
+        newNode.nextNode = head;
+        head = newNode;
+
+    }
+
     private static Node findExistingNode(int data1){
         Node current = head;
 
@@ -351,6 +418,15 @@ public class LinkedList_DSA_Sheet {
 
         while(current != null){
             System.out.print( current.data+"  ");
+            current = current.nextNode;
+        }
+    }
+
+    private static void printLLString(Node head1){
+        Node current = head1;
+
+        while(current != null){
+            System.out.print( current.dataString+"  ");
             current = current.nextNode;
         }
     }
