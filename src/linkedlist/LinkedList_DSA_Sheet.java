@@ -13,9 +13,9 @@ public class LinkedList_DSA_Sheet {
 
     public static void main(String[] args) {
 
-       /* {
+       {
 //            insertAtBeginning(9);
-            insertAtBeginning(8);
+//            insertAtBeginning(8);
             insertAtBeginning(7);
             insertAtBeginning(6);
             insertAtBeginning(5);
@@ -28,7 +28,7 @@ public class LinkedList_DSA_Sheet {
             printLL(head);
             System.out.println("\n");
         }
-        */
+
 
 
 
@@ -114,6 +114,7 @@ public class LinkedList_DSA_Sheet {
 
         // 9. Function to check if a singly linked list is palindrome.   Ex: R -> A -> D -> A -> R
 
+        /*
         {
             insertAtBeginningString("R");
             insertAtBeginningString("A");
@@ -126,6 +127,46 @@ public class LinkedList_DSA_Sheet {
         }
 
         checkIfLLIsPalindrome();
+        */
+
+
+
+        // 10. Write a function to get the intersection point of two Linked Lists
+
+//         look in geeksForGeeks as its simple to implement just look at the approach
+
+
+        // 11. Find intersection of two sorted Linked List
+
+//        geeksForGeeks for solution
+
+
+        // 12. Delete alternate nodes of LL
+
+//        . For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5, and if the given linked list is 1->2->3->4 then convert it to 1->3.
+
+        deleteAlternateNodes();
+        printLL(head);
+
+    }
+
+    // 12. Delete alternate nodes of LL
+    private static void deleteAlternateNodes() {
+        if(head == null){
+            return ;
+        }
+
+        Node current = head;
+
+        while (current != null && current.nextNode != null){
+            current.nextNode = current.nextNode.nextNode;
+            current  = current.nextNode;
+//            System.out.println(current.data);
+        }
+
+//        printLL(head);
+
+
 
 
     }
