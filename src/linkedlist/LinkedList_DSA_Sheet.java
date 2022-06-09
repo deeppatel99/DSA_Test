@@ -13,7 +13,7 @@ public class LinkedList_DSA_Sheet {
 
     public static void main(String[] args) {
 
-       {
+       /*{
 //            insertAtBeginning(9);
 //            insertAtBeginning(8);
             insertAtBeginning(7);
@@ -27,7 +27,7 @@ public class LinkedList_DSA_Sheet {
             System.out.println();
             printLL(head);
             System.out.println("\n");
-        }
+        }*/
 
 
 
@@ -145,8 +145,28 @@ public class LinkedList_DSA_Sheet {
 
 //        . For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5, and if the given linked list is 1->2->3->4 then convert it to 1->3.
 
+        /*
         deleteAlternateNodes();
         printLL(head);
+        */
+
+
+        // 13. Union and Intersection of two Linked Lists
+
+//        look in geeksForGeeks medium question
+
+
+        // 14. Merge Two Sorted Linked List
+
+//          look in geeksForGeeks and Striver's youtube solution
+
+        //15. Sum of Two Linked List
+
+//        Striver's youtube solution
+
+        // 16. Flatten a Linked List
+
+//        Striver's youtube solution
 
     }
 
