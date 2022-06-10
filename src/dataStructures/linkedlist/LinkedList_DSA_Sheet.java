@@ -1,4 +1,4 @@
-package linkedlist;
+package dataStructures.linkedlist;
 
 import java.util.Stack;
 
@@ -13,7 +13,7 @@ public class LinkedList_DSA_Sheet {
 
     public static void main(String[] args) {
 
-       /*{
+       {
 //            insertAtBeginning(9);
 //            insertAtBeginning(8);
             insertAtBeginning(7);
@@ -27,7 +27,7 @@ public class LinkedList_DSA_Sheet {
             System.out.println();
             printLL(head);
             System.out.println("\n");
-        }*/
+        }
 
 
 
@@ -37,15 +37,15 @@ public class LinkedList_DSA_Sheet {
 //        Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3
 //        Output:   3->2->1->6->5->4->9->8->7->NULL.
 
-        /*
+
         System.out.println("Reverse a Linked List in group of given size K : \n");
 
-        Node newHead = head;
-        newHead = reverseLLOfSizeK(newHead,3);
-        printLL(newHead);
+//        Node newHead = head;
+        head = reverseLLOfSizeK(head,3);
+        printLL(head);
 
         System.out.println();
-        */
+
 
 
         // 2. Reverse alternate K nodes in a Singly Linked List
